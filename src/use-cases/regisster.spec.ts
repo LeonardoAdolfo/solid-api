@@ -1,20 +1,38 @@
+/* eslint-disable prettier/prettier */
 import { test, expect, describe, it } from 'vitest'
 import { RegisteruseCase } from './register'
-import { PrismaUsersRepository } from '@/repositories/prisma/prisma-users-repository'
+import { compare } from 'bcryptjs'
 
+describe('Register Use Case', () => {
+  it('should hash user upon registration', async () => {
+    const registerUseCase = new RegisteruseCase({
+        async findByEmail(){
+            return null
+        },
 
-describe('Register Use Case', ()=>{
-    it('should hash user upon registration', async ()=>{
-        const prismaUsersRepository = new PrismaUsersRepository()
-        const registerUseCase = new RegisteruseCase(prismaUsersRepository)
+        async create(data) {
+            return{
+                id: 'user-1',
+                name: data.name,
+                email: data.email,
+                password_hash: data.password_hash,
+                created_at: new Date()
 
-        const {user} = await registerUseCase.execute({
-            name: 'John Doe',
-            email: 'johndoe@gmail.com',
-            password:'123456'
-        })
-
-        console.log(user.password_hash)
-
+            }
+        },
     })
+
+    const { user } = await registerUseCase.execute({
+      name: 'John Doe',
+      email: 'johndoe@gmail.com',
+      password: '123456',
+    })
+
+    const isPasswordCorrectlyHashed = await compare(
+        '123456',
+        user.password_hash
+    )
+
+    expect(isPasswordCorrectlyHashed).toBe(true)
+  })
 })

@@ -1,6 +1,7 @@
-import { FastifyInstance } from "fastify";
-import { register } from "./controllers/register";
+/* eslint-disable prettier/prettier */
+import { FastifyInstance } from 'fastify'
+import { register } from './controllers/register'
 
-export async function appRoutes(app:FastifyInstance) {
-    app.post('/users', register)
+export async function appRoutes(app: FastifyInstance) {
+  app.post('/users', register)
 }
