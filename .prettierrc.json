@@ -1,8 +1,8 @@
 {
-    "prettier/prettier": [
-        "error",
-        {
-          "endOfLine": "false"
-        }
-      ]
+  "prettier/prettier": [
+    "error",
+    {
+      "endOfLine": "auto"
+    }
+  ]
 }

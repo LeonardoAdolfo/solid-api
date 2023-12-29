@@ -1,8 +1,6 @@
 /* eslint-disable prettier/prettier */
 /* eslint-disable @typescript-eslint/no-explicit-any */
 /* eslint-disable prettier/prettier */
-import { prisma } from '@/lib/prisma'
-import { PrismaUsersRepository } from '@/repositories/prisma/prisma-users-repository'
 import { UsersRepository } from '@/repositories/users-repository'
 import { hash } from 'bcryptjs'
 import { UserAlreadyExsistsError } from './errors/user-already-exists-error'
@@ -18,7 +16,7 @@ interface RegisterUseCaseResponse {
   user: User
 }
 
-export class RegisteruseCase {
+export class RegisterUseCase {
   constructor(private usersRepository: UsersRepository) {}
 
   async execute({ name, email, password }: RegisterUseCaserequest): Promise<RegisterUseCaseResponse> {
