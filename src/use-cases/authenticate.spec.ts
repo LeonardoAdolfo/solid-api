@@ -1,6 +1,6 @@
 /* eslint-disable prettier/prettier */
 import {  expect, describe, it, beforeEach } from 'vitest'
-import { compare, hash } from 'bcryptjs'
+import {  hash } from 'bcryptjs'
 import { InMemoryUsersRepository } from '@/repositories/in-memory/in-memory-user-repository'
 import { AuthenticateUseCase } from './authenticate'
 import { InvalidCredentialError } from './errors/invalid-credentials-error'
