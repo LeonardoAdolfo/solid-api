@@ -1,6 +1,6 @@
 /* eslint-disable prettier/prettier */
 import { prisma } from "@/lib/prisma";
-import { Prisma, User } from "@prisma/client"
+import { Prisma } from "@prisma/client"
 import { UsersRepository } from "../users-repository";
 /* eslint-disable prettier/prettier */
 export class PrismaUsersRepository implements UsersRepository{
