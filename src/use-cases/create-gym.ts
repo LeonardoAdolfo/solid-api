@@ -1,9 +1,6 @@
 /* eslint-disable prettier/prettier */
 /* eslint-disable @typescript-eslint/no-explicit-any */
 /* eslint-disable prettier/prettier */
-import { UsersRepository } from '@/repositories/users-repository'
-import { hash } from 'bcryptjs'
-import { UserAlreadyExsistsError } from './errors/user-already-exists-error'
 import { Gym } from '@prisma/client'
 import { GymsRepository } from '@/repositories/gym-repository'
 
